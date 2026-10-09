@@ -1,45 +1,51 @@
-# UNIPILOT · OPERATING DASHBOARD
+# UniPilot — Operating Dashboard
 
-**B2C tự phục vụ / PLG đề xuất** · **09/10/2026** · Đoàn Quang Thanh · 2A202602841  
-Sinh viên dự kiến vừa dùng vừa trả thuê bao; chưa xác minh khách trả phí, tổ chức mua hay partner phân phối.
+**Mô hình:** B2C tự phục vụ đề xuất · **Cập nhật:** 09/10/2026 · **Đoàn Quang Thanh · 2A202602841**
 
-## NORTH STAR
+**NORTH STAR — Weekly On-Time Important Task Completions:** task học tập do sinh viên capture và đánh dấu important, rồi xác nhận hoàn tất trước hoặc đúng hạn trong academic week; chỉ tính transition chưa hoàn tất → hoàn tất đã persist, đúng user/task, loại duplicate, save failure và AI plan delivery. **Hiện tại: CHƯA ĐO.** Mục tiêu sau baseline: ≥ median của 4 tuần học đủ điều kiện gần nhất.
 
-**Weekly On-Time Important Task Completions** — task học tập important do student capture và xác nhận complete trước/đúng hạn trong academic week. Completion phải persist non-completed→completed, đúng task/user; loại duplicate, save fail, task đã complete, click/login, AI plan delivery. **Hiện tại: CHƯA ĐO · mục tiêu chưa phê duyệt.**
+Ngưỡng North Star [TB]: sau 4 tuần baseline dương, cohort cố định với ≥10 sinh viên có actionable work mỗi tuần và QA ≥95%; xanh ≥ median, vàng ≥80% và <100% median, đỏ <80%. Median 0 hoặc eligibility mix đổi thì CHƯA ĐO và lập lại baseline.
 
-## Metric lights · mọi số “hiện tại” đều CHƯA ĐO
+### Đèn báo sớm (Leading)
 
-**North Star bands [TB]:** after four positive eligible teaching-week baselines for the same fixed cohort (≥10 students with actionable work each week and event QA ≥95%), 🟢 weekly count ≥ 4-week median; 🟡 ≥80% and <100% of median; 🔴 <80%. A zero baseline or changed cohort/workload mix = CHƯA ĐO/reset baseline. These are self-relative alerts, not an absolute growth target.
+| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn | Báo trước cho |
+|---|---|---|---|---|
+| Eligible-week W4 retention | CHƯA ĐO | ≥30% / 15%–<30% / <15% | [TB] cohort mature, n≥10, W4 đủ quan sát | Paid retention/LTV; W2→W4 chỉ chẩn đoán |
+| 7-day first-value activation | CHƯA ĐO | ≥40% / 25%–<40% / <25% | [TB] first-task cohort, n≥10, đủ 7 ngày | W1 eligible retention |
+| Upcoming-task readiness | CHƯA ĐO | ≥80% / 60%–<80% / <60% | [TB] ≥30 task/tuần gồm deadline thiếu, 2 tuần | Activation/NSM; giả thuyết về task information |
 
+### Đèn vận hành (Operating)
 
-| Tier / metric | Ngưỡng 🟢 xanh · 🟡 vàng · 🔴 đỏ | Nguồn, kỳ & báo trước |
-|---|---|---|
-| **LEADING · Eligible-week value retention / curve** W4; taskless/break weeks không churn | 🟢 W4 ≥30% · 🟡 15%≤W4<30% · 🔴 W4<15% | [TB] Per mature first-completion cohort; W4 is 4th eligible teaching week; n≥10 with actionable work and complete W4. W2→W4 is diagnostic only. 30% is Day22 proposed gate, 15% a provisional boundary. |
-| **LEADING · 7-day first-value Activation** first task→persisted completion | 🟢 ≥40% · 🟡 25–<40% · 🔴 <25% | [TB] ≥10 users/cohort with 7-day follow-up; exploratory minimum; báo trước eligible W1 retention. 7 days = Day20 hypothesis. |
-| **LEADING · Upcoming-task readiness** active captured tasks due within 7 days or with missing/invalid/expired deadline; numerator also requires valid deadline + actionable context | 🟢 ≥80% · 🟡 60–<80% · 🔴 <60% | [TB] Numerator: distinct active captured academic tasks with valid due date ≤7 days from capture + actionable context.<br>Denominator: distinct active academic tasks captured in-window due within 7 days OR missing/invalid/expired due date (missing, unparsable, impossible, or due on/before capture); valid dates >7 days are excluded. ≥30 eligible captured tasks/week ×2, including missing/invalid/expired deadlines; detects information gaps ahead of activation/NSM (hypothesis). |
-| **OPERATING · Priority-plan adoption-to-value** presented tasks later completed on time | 🟢 ≥50% · 🟡 25–<50% · 🔴 <25% | [TB] ≥20 eligible tasks/week ×2 and followed through due date; predicts NSM, not AI quality. |
-| **OPERATING · All-in direct cost / paid-seat request** | 🟢 ≤$0.3992 · 🟡 >$0.3992–$0.4990 · 🔴 >$0.4990 | [MH]+[TB] All-in cost per user-initiated paid-seat request; ≥30 attempts + reconciled cost.<br>Includes failed and restored-credit attempts; provider retries are cost, not extra user requests. Pooled $0.499×4=$1.996 protects aggregate 60% GM only when every seat has ≤4 requests and net revenue is $4.99/seat-month. Any seat >4, unequal usage/costs or variable revenue requires seat-level COGS/GM calculation; aggregate COGS must also be ≤40% aggregate net recognized revenue. $0.47536 is infra-only; free/promo costs separate. |
-| **LAGGING · CAC / net-new paid student account** | 🟢 ≤$9.349056 · 🟡 >$9.349056–$11.68632 · 🔴 >$11.68632 | [MH]+[TB] $11.68632 cap = 3-month modeled payback at $4.99/78.0649% GM; recalc as 3× observed monthly gross contribution if realized price/COGS differ; ≥10 net-new paid accounts, attribution complete.<br>CAC = (paid media + channel/affiliate fees + campaign creative/agency + consistently allocated loaded acquisition labor) ÷ unique first-time paid accounts with positive net charge after the proposed 30-day refund/chargeback window. Use first tagged qualified touch within proposed 30-day pre-charge lookback; exclude free/trial/test and fully refunded accounts; report reactivations separately. Usage credits are COGS, not CAC; discounts/refunds reduce collected contribution, not CAC spend; promo generation credits add COGS. Actual CHƯA ĐO. |
-| **LAGGING · Paid-seat GM** | 🟢 ≥70% · 🟡 60–<70% · 🔴 <60% | [MH]+[TB] 60% model floor; ≥10 complete paid seat-months. Model GM 78.0649% is estimate, not actual. |
+| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn | Báo trước cho |
+|---|---|---|---|---|
+| Priority-plan adoption-to-value | CHƯA ĐO | ≥50% / 25%–<50% / <25% | [TB] ≥20 task/tuần đã theo dõi đến due date, 2 tuần | NSM; không phải AI quality |
+| All-in direct cost / paid-seat request | CHƯA ĐO | ≤$0.3992 / >$0.3992–$0.4990 / >$0.4990 | [MH]+[TB] ≥30 attempts, cost reconciliation; failures/restored credits included, retries are cost | Paid-seat GM; $0.499×4 protects 60% floor only at $4.99 net revenue and ≤4 requests/seat |
 
-Missing/zero denominator, immature cohort, incomplete cost attribution or sample guard failure = **CHƯA ĐO**, never green/red. Weekly retention cohorts enter on first valid `academic_task_completed`; return requires another such event during an eligible active teaching week. Events are defined in Day20; actual telemetry is not available.
+### Đèn kết quả (Lagging)
 
-## 5 operating rules · AI-assisted drafts, student rewrite required
+| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn |
+|---|---|---|---|
+| CAC / net-new paid student account | CHƯA ĐO | ≤$9.349056 / >$9.349056–$11.68632 / >$11.68632 | [MH]+[TB]; ≥10 accounts, 30-day refund window and attribution complete |
+| Paid-seat gross margin | CHƯA ĐO | ≥70% / 60%–<70% / <60% | [MH]+[TB]; 60% model floor; ≥10 complete paid seat-months |
 
-1. **⏹** **NẾU** eligible W4 <15% **TRONG** 2 consecutive mature cohorts **VÀ** n≥10 eligible students/cohort with complete W4 observation **THÌ** freeze paid-acquisition launch and run 5 moderated first-task→completion sessions next week **KHÔNG THÌ** do not buy ads to offset churn or count taskless weeks as churn. ⏹ STOP
-2. **⏹** **NẾU** 7-day activation <25% **TRONG** 2 consecutive cohorts **VÀ** n≥10/cohort, full 7-day follow-up and event QA ≥95% **THÌ** pause paywall work, replace the onboarding step with the highest failure count in the two cohort logs, then run 10 task-flow sessions **KHÔNG THÌ** do not discount to hide failure to reach first value. ⏹ STOP
-3. **⏹** **NẾU** all-in cost >$0.499/request **HOẶC** any seat has >4 requests/month **HOẶC** net recognized revenue ≠$4.99<br>**TRONG** a closed month **VÀ** ≥30 requests, complete cost reconciliation and seat-month counts<br>**THÌ** freeze allowance expansion; if cost >$0.499, cap test usage at 4 requests/seat-month; always reconcile paid-seat-month totals; if any seat has >4 requests, usage/costs vary, or net revenue differs, calculate actual seat GM from allocated seat COGS; confirm aggregate COGS ≤40% aggregate net revenue **KHÔNG THÌ** do not treat request ceiling alone as proof of 60% GM under restored-credit/overage volume or report modeled $0.27364 as actual. ⏹ STOP
-4. **NẾU** readiness <60% **TRONG** 2 academic weeks **VÀ** ≥30 eligible captured tasks/week including missing/invalid/expired deadlines and event QA ≥95% **THÌ** add due-date/context validation next sprint **KHÔNG THÌ** do not exclude missing-deadline tasks or infer their dates with AI and call them ready.
-5. **⏹** **NẾU** CAC per net-new paid account exceeds the lower of $11.68632/account (modeled full-price cap) and 3× observed monthly gross contribution/account<br>**TRONG** one closed acquisition cohort **VÀ** ≥10 net-new accounts after the 30-day refund/chargeback window with complete spend, attribution and refund records<br>**THÌ** freeze paid launch/expansion and run one tagged organic/referral cohort capped at 10 participants next week, logging cash spend and attributed labor; with no transactions, keep NO-GO **KHÔNG THÌ** do not scale from the $7.50 stretch scenario or competitor pricing. ⏹ STOP
+Missing denominator, immature cohort, or incomplete attribution/cost allocation = CHƯA ĐO, never zero or red. Cost/request alone does not establish each seat’s GM when requests exceed four or seat usage, costs, or net revenue vary; allocate seat-month COGS and verify aggregate COGS ≤40% of aggregate net recognized revenue.
 
-## 30 / 60 / 90-day gates · one gating metric each
+### 5 luật quyết định (⏹ = luật dừng)
 
-| Gate / date | Single pass metric | Physical evidence · decision if fail |
-|---|---|---|
-| **D30 · 08/11/2026 · Learning** | [TB] ≥8 of 12 interviewed students independently report recurring weekly overlapping-deadline pain and show current workaround | 12 consented, anonymized notes + coding rubric.<br>Pass: continue discovery; fail: rewrite the problem/ICP hypothesis. [TB] proposed learning threshold; no revenue gate. |
-| **D60 · 08/12/2026 · Operating** | [TB] 7-day Activation ≥40%; n≥10 with full follow-up and ≥95% event QA | Timestamped event export + cohort query/QA log.<br>Pass: bounded retention cohort; fail/low n: FIX workflow/instrumentation, no paid scaling. [TB] exploratory gate, not stable-performance evidence. |
-| **D90 · 07/01/2027 · Viability** | [TB]/Day22 proposed eligible academic W4 retention ≥30% in one mature first-completion cohort; n≥10 eligible students with actionable work and full W4 observation | Cohort table + eligibility audit + QA.<br>Pass: after price approval, instrument one tagged checkout cohort of up to 50 qualified visits (Day22 stretch-plan volume, not conversion evidence); fail: one FIX by 14/01/2027, recruit a distinct cohort by 21/01/2027, no paid scale; insufficient sample means CHƯA ĐO and no kill decision. CAC is non-gating NO-GO until measured CAC is ≤the lower of $11.68632/account and 3× observed monthly gross contribution/account. |
+1. **⏹ STOP — NẾU** W4 retention <15% **TRONG** hai cohort mature liên tiếp **VÀ** mỗi cohort có ≥10 sinh viên đủ điều kiện với W4 quan sát đầy đủ **THÌ** trong tuần kế tiếp đóng băng paid-acquisition launch và chạy 5 workflow sessions có điều phối, ghi lại blocker từ tạo task đến completion **KHÔNG THÌ** không mua ads để bù churn hoặc tính tuần nghỉ/không có task là churn.
+2. **⏹ STOP — NẾU** 7-day activation <25% **TRONG** hai first-task cohort liên tiếp **VÀ** mỗi cohort có ≥10 user, đủ follow-up 7 ngày và event QA ≥95% **THÌ** tạm dừng paywall work, sửa onboarding step có failure cao nhất trong logs và chạy 10 task-flow sessions tuần sau **KHÔNG THÌ** không giảm giá để che việc chưa đạt first value.
+3. **⏹ STOP — NẾU** all-in direct cost >$0.499/request **HOẶC** có seat >4 requests/tháng **HOẶC** net recognized revenue ≠$4.99 **TRONG** tháng đã đóng sổ **VÀ** có ≥30 attempts, đối soát cost và seat-month counts đầy đủ **THÌ** đóng băng mở rộng allowance; nếu cost vượt trần thì cap test ở 4 requests/seat-month; nếu usage hoặc revenue khác giả định thì phân bổ COGS và tính seat GM cùng aggregate COGS/net revenue **KHÔNG THÌ** không coi $0.499/request tự nó chứng minh 60% GM hoặc báo cost mô hình là actual.
+4. **NẾU** upcoming-task readiness <60% **TRONG** 2 tuần học **VÀ** mỗi tuần có ≥30 task đủ điều kiện gồm cả missing/invalid deadline và QA ≥95% **THÌ** sprint kế tiếp thêm validation bắt buộc cho due date/actionable context và đo lại cohort sau **KHÔNG THÌ** không loại task thiếu deadline khỏi mẫu số hoặc tự suy deadline/context bằng AI rồi gọi task là sẵn sàng.
+5. **⏹ STOP — NẾU** CAC/net-new account vượt mức thấp hơn của $11.68632 và 3× gross contribution tháng/account quan sát **TRONG** một acquisition cohort đã đóng **VÀ** có ≥10 account mới sau cửa sổ refund/chargeback 30 ngày, spend/attribution/refund records đầy đủ **THÌ** đóng băng paid launch/expansion và chạy một tagged organic/referral cohort tối đa 10 người tuần sau; chưa có giao dịch thì giữ NO-GO **KHÔNG THÌ** không scale từ stretch scenario hoặc giá đối thủ.
 
-**KILL (draft; post-fix review, not D90):** D90 W4 below 30% triggers one FIX shipped by 14/01/2027 and a distinct cohort recruited by 21/01/2027. At **21/02/2027 (D135)**, stop current B2C positioning only if post-fix W4 retention <10% among ≥10 eligible students, with four complete eligible academic weeks and event QA ≥95%. At 10%–<30%, pivot the current positioning; at ≥30%, permit one tagged checkout test capped at 50 qualified visits after price approval; record actual spend/contribution before any scale decision. If break/recruitment delays make W4 immature by D135, result is CHƯA ĐO and KILL is deferred.
+### Cổng gác 90 ngày
 
-**CHƯA ĐO ĐƯỢC:** Không có users/interviews đã hoàn thành, paid seats, CAC, billing/refunds, retention, production LLM/token or hosting invoices, free-tier cost, p95, WTP hay runway. Day22 100/100 synthetic validator pass ≠ AI/user success; R=85%, $0.27364/credit, $4.99, 4 credits and 78.0649% GM là model estimates/proposals. Cần privacy/security-approved event, cost and billing instrumentation; first baseline after proposed 15/11/2026 review. Proposed price/credit and failure policy are not approved. Ngưỡng/rules/gates là AI-assisted drafts awaiting student rewrite and sign-off.
+| Ngày | Metric (1) | Ngưỡng qua cổng | Bằng chứng | Nếu trượt |
+|---|---|---|---|---|
+| 30 · 08/11/2026 | Pain-validation interview yield | ≥8/12 người được phỏng vấn độc lập nêu vấn đề deadline chồng lấn hằng tuần và cho thấy workaround hiện tại | 12 ghi chú phỏng vấn có consent, đã khử định danh; coding rubric và timestamp. Đây là cổng học, không phải doanh thu. | <8/12: sửa giả thuyết problem/ICP; không tuyên bố demand đã xác thực. |
+| 60 · 08/12/2026 | 7-day first-value activation | ≥40%; n≥10, đủ follow-up 7 ngày, QA ≥95% | Event export có timestamp, phiên bản định nghĩa, cohort query và QA log. | Đạt: bắt đầu retention cohort giới hạn; trượt/thiếu mẫu: FIX workflow/instrumentation, không paid scale. |
+| 90 · 07/01/2027 | Eligible academic W4 retention | ≥30% trong cohort first-completion đã mature; n≥10 sinh viên đủ điều kiện với actionable work và W4 đủ quan sát | Cohort table đã khử định danh, eligibility audit, event QA và follow-up dates. | Đạt: sau pricing approval, mở một tagged checkout test tối đa 50 qualified visits. W4<30% khi cohort mature: một FIX trước 14/01/2027 và tuyển cohort khác trước 21/01/2027; thiếu mẫu/follow-up: CHƯA ĐO, sửa đo lường, không KILL. Paid acquisition vẫn NO-GO. |
+
+**KILL CRITERIA — D135 (21/02/2027), không phải D90:** D90 W4 <30% dẫn tới một FIX trước 14/01/2027 và cohort riêng sau sửa trước 21/01/2027. Ngừng định vị B2C hiện tại chỉ khi post-fix W4 <10% trong cohort có ≥10 sinh viên đủ điều kiện, bốn tuần học đủ quan sát và event QA ≥95%. W4 từ 10% đến <30%: PIVOT; W4 ≥30%: cho phép tagged checkout test tối đa 50 qualified visits sau pricing approval. Nếu cohort chưa mature vào D135, kết quả CHƯA ĐO và hoãn KILL.
+
+**CHƯA ĐO ĐƯỢC:** Chưa có verified users, interviews, paid customers, CAC, billing/refund, retention, task outcomes, production LLM/provider/hosting invoices, free-tier cost, p95, WTP hay runway. Day22 100/100 là kết quả validator offline trên dữ liệu tổng hợp, không phải model/user success. Cần event, billing, attribution, provider-cost và invoice records; baseline product đầu tiên có thể bắt đầu sau review dự kiến 15/11/2026, còn CAC/retention cần checkout/cohort đủ trưởng thành. Missing is not zero.
