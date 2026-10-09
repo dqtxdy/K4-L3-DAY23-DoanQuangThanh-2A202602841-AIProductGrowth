@@ -28,8 +28,6 @@ Ngưỡng North Star [TB]: sau 4 tuần baseline dương, cohort cố định v�
 | CAC / net-new paid student account | CHƯA ĐO | ≤$9.349056 / >$9.349056–$11.68632 / >$11.68632 | [MH]+[TB]; ≥10 accounts, 30-day refund window and attribution complete |
 | Paid-seat gross margin | CHƯA ĐO | ≥70% / 60%–<70% / <60% | [MH]+[TB]; 60% model floor; ≥10 complete paid seat-months |
 
-The AI-cost light is metric 5: All-in direct cost / paid-seat request.
-
 Missing denominator, immature cohort, or incomplete attribution/cost allocation = CHƯA ĐO, never zero or red. Cost/request alone does not establish each seat’s GM when requests exceed four or seat usage, costs, or net revenue vary; allocate seat-month COGS and verify aggregate COGS ≤40% of aggregate net recognized revenue.
 
 ### 5 luật quyết định (⏹ = luật dừng)
